@@ -1,0 +1,37 @@
+# Laravel & PHP
+/vendor
+/storage/*.key
+.env
+.env.backup
+.env.production
+.phpunit.result.cache
+.phpunit.cache
+
+# Laravel specific
+/public/storage
+/public/build
+/public/hot
+
+# Node & frontend build
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# Laravel Homestead
+Homestead.json
+Homestead.yaml
+
+# Composer Auth
+auth.json
+
+# IDEs & Editors
+/.idea
+/.vscode
+
+# JetBrains Fleet
+/.fleet
+
+# OS-specific
+.DS_Store
+Thumbs.db
+

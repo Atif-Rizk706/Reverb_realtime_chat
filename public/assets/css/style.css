@@ -1,0 +1,63 @@
+/* Reset & Global */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+/* Container */
+.auth-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Heading */
+.auth-container h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2a5298;
+}
+
+/* Form Labels */
+.form-label {
+    font-weight: 500;
+    color: #333;
+}
+
+/* Button */
+.btn-primary {
+    background-color: #2a5298;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #1e3c72;
+}
+
+/* Input Focus */
+.form-control:focus {
+    border-color: #2a5298;
+    box-shadow: none;
+}
+
+/* Responsive for small screens */
+@media (max-width: 576px) {
+    .auth-container {
+        padding: 1.5rem;
+        border-radius: 10px;
+    }
+}
