@@ -14,7 +14,7 @@
 <body>
 <div class="auth-container">
     <h3>تسجيل الدخول</h3>
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('post_login') }}">
         @csrf
         <div class="mb-3">
             <label for="email" class="form-label">البريد الإلكتروني</label>
@@ -30,7 +30,7 @@
         </div>
         <button type="submit" class="btn btn-primary w-100">دخول</button>
         <div class="text-center mt-3">
-            <a href="{{ route('register') }}">ليس لديك حساب؟ سجل الآن</a>
+            <a href="{{ route('post_register') }}">ليس لديك حساب؟ سجل الآن</a>
         </div>
     </form>
 </div>

@@ -1,12 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
-use Illuminate\Foundation\Http\FormRequest;
 
-
-class LoginRequest extends  FormRequest
+class MessageRequest
 {
-
     public function authorize()
     {
         return true;
@@ -15,8 +12,10 @@ class LoginRequest extends  FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
-            'password' => 'required|min:6',
+            'message' => 'required',
+            'file' => 'nullable',
+            'receiver_id'=>'required'
         ];
     }
+
 }

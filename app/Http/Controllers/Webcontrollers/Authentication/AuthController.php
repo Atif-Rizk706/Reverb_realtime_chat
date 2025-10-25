@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\webcontrollers\Authentication;
+namespace App\Http\Controllers\Webcontrollers\Authentication;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AuthController1 extends Controller
+class AuthController extends Controller
 {
     public function login(LoginRequest $request){
         $credentials = $request->only('email', 'password');

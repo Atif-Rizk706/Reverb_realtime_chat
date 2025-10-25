@@ -44,4 +44,17 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function lastMessage(User $otherUser)
+    {
+        return Message::where(function ($query) use ($otherUser) {
+            $query->where('sender_id', $this->id)
+                ->where('receiver_id', $otherUser->id);
+        })
+            ->orWhere(function ($query) use ($otherUser) {
+                $query->where('sender_id', $otherUser->id)
+                    ->where('receiver_id', $this->id);
+            })
+            ->latest()
+            ->value('message');
+    }
 }
