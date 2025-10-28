@@ -34,4 +34,6 @@ class SendMessage implements ShouldBroadcast
             new PrivateChannel('chat.' . $this->message->receiver_id),
         ];
     }
+
+
 }

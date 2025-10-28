@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function (){
     Route::get('/privet_chat/{user}', [HomeController::class,'userChat'])->name('privet_chat');
     Route::post('/privet_chat/{user}/send', [ChatController::class,'sendMessage'])->name('send_message');
     Route::post('/privet_chat/typing', [ChatController::class,'typing'])->name('typing');
-    Route::post('/online', [ChatController::class,'online'])->name('online');
-    Route::post('/offline', [ChatController::class,'offline'])->name('offline');
+    Route::post('/online', [ChatController::class,'setOnline'])->name('online');
+    Route::post('/offline', [ChatController::class,'setOffline'])->name('offline');
 
 });

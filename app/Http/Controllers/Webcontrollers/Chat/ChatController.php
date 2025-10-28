@@ -14,20 +14,23 @@ use Illuminate\Support\Facades\Cache;
 
 class ChatController extends Controller
 {
-    public function store(MessageRequest $request,User $user){
-        $message = Message::create([
-            'sender_id'=>Auth::id(),
-            'receiver_id'=>$user->id,
-            'message'=>$request['message'],
-        ]);
+    public function sendMessage( Request $request, User $user){
+        try {
+            $message = Message::create([
+                'sender_id' => Auth::id(),
+                'receiver_id' => $user->id,
+                'message' => $request->message,
+            ]);
 
-        broadcast(new SendMessage($message))->toOthers();
-          return response()->json(['status'=>'success']);
+            broadcast(new SendMessage($message))->toOthers();
+            return response()->json(['status' => 'success']);
 
-
-
-
-
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ], 500);
+        }
     }
     public function typing(){
         broadcast(new UserTyping(Auth::id()))->toOthers();
@@ -41,7 +44,7 @@ class ChatController extends Controller
     }
     public function setOffline(){
         Cache::put('user-is-offline' . Auth::id(),true);
-        return response()->json(['status'=>'online']);
+        return response()->json(['status'=>'offline']);
 
     }
 

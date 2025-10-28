@@ -17,6 +17,7 @@ class HomeController
     }
 
     Public function userChat(User $user){
+        $receiverId=$user->id;
         $messages= Message::where(function ($query) use ($user) {
             $query->where('sender_id', Auth::id())
                  ->where('receiver_id', $user->id);
@@ -25,7 +26,7 @@ class HomeController
                     ->where('receiver_id', Auth::id());
               })->get();
         return view('user.chat.privetchat',compact(
-            'messages'
+            'messages','user'
         ));
     }
 }

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Requests;
+use Illuminate\Foundation\Http\FormRequest;
 
-class MessageRequest
+class MessageRequest extends FormRequest
 {
     public function authorize()
     {
